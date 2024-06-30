@@ -4,7 +4,7 @@ import Button from '@/components/ui/button';
 import Card from '@/components/ui/Card';
 import './App.css';
 
-const emojis = ['🍎', '🍌', '🍒', '🍓', '🍊', '🍋', '🍍', '🍉', '🍇', '🍐', '🥝', '🥥'];
+const emojis = ['🍎', '🍌', '🍒', '🍓', '🍊', '🍋', '🍍', '🍉', '🍇', '🍐']; // 10 emojis
 
 const MemoryGame = () => {
   const [cards, setCards] = useState([]);
@@ -18,7 +18,7 @@ const MemoryGame = () => {
   }, []);
 
   const initializeGame = () => {
-    const shuffledEmojis = [...emojis, ...emojis].sort(() => Math.random() - 0.5);
+    const shuffledEmojis = [...emojis, ...emojis].sort(() => Math.random() - 0.5); // 20 cartas
     setCards(shuffledEmojis.map((emoji, index) => ({ id: index, emoji })));
     setFlipped([]);
     setSolved([]);
@@ -56,7 +56,7 @@ const MemoryGame = () => {
     <div className="flex flex-col items-center justify-center min-h-screen min-w-full p-4">
       <h1 className="text-4xl font-bold mb-4 text-white title">Jogo da Memória 🕹️</h1>
       <div className="mb-4 text-white text-xl sub-title">Tentativas erradas: {wrongAttempts}</div>
-      <div className="grid grid-cols-6 gap-4 mb-8">
+      <div className="grid grid-cols-4 gap-4 mb-8">
         {cards.map((card) => (
           <Card
             key={card.id}
